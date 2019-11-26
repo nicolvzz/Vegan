@@ -1,0 +1,34 @@
+h1 a, h2 a {
+    color: #C25100;
+}
+body{
+    font-family: 'Oswald', sans-serif;  
+}
+
+#logo {
+    font-size: 500%;
+    color: #795E1D;
+  }
+
+  /*Navbar*/
+  #navbar1 {
+    background-color: #FACD11;
+    color: white;
+  }
+  #navbar1 a {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 25px;
+    margin-right: 100px;
+  }
+  #navbarNavDropdown a {
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 100px;
+  }
+  #navbarNavDropdown a:hover {
+    color: #795E1D;
+  }
+  .navbar-brand {
+    margin-left: 20px;
+  }

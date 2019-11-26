@@ -1,0 +1,109 @@
+{% extends 'vegan/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- IMG Y TEXTO 1-->
+    <div class="container" style="margin-top: 60px;">
+        <!-- Container w-100 -->
+        <div class="w-100" style="background-color: white;  ">
+          <!-- Img1 -->
+          <img
+            src="{% static 'img/special11.jpg' %}"
+            class="rounded mx-auto d-block img-fluid "
+            alt="jovenes reciclando"
+            style="height: 300px;"
+          />
+          <p style="margin-top: 60px; text-align: center">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio,
+            soluta. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ratione, dolore? Lorem ipsum dolor Lorem ipsum dolor sit, amet
+            consectetur adipisicing elit. Fugit ad magni ipsum ut! Odio,
+            blanditiis magni placeat laboriosam enim debitis, unde quis accusamus
+            cupiditate similique quo libero numquam adipisci nisi.
+          </p>
+        </div>
+      </div>
+      <!-- jumbotron verde (SEPARADOR)-->
+      <div class="container">
+        <div
+          class="jumbotron"
+          style=" padding:1%;background-color: #795E1D;"
+        ></div>
+      </div>
+      <!-- Imagen y texto 2 -->
+      <div class="container" style="margin-top: 40px; margin-bottom: 40px">
+        <!-- Fila con 2 columnas -->
+        <div class="row">
+          <!-- Primera Columa  de 6 -->
+          <!-- Texto -->
+          <div class="col-8">
+            <p style="text-align: right; padding-top: 20%;">
+              Construyamos un mundo mucho mejor, juntos. ayudando a reciclando o
+              simplemente implementando un nuevo pensamiento. Lorem ipsum dolor
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate aspernatur cumque fugit placeat, dignissimos illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi laborum ducimus quae optio fuga. Harum facilis esse reiciendis, blanditiis fugiat doloribus nesciunt aut. Ea saepe assumenda similique minus explicabo expedita?
+            </p>
+          </div>
+          <!--Segunda Columa  6-->
+          <!-- Imagen -->
+          <div class="col-3">
+            <img
+              src="{% static 'img/special9.jpg' %}"
+              class=" rounded  d-block img-fluid "
+              alt="jovenes reciclando" 
+            />
+          </div>
+        </div>
+      </div>
+      <!-- jumbotron  (SEPARADOR)-->
+      <div class="container">
+        <div
+          class="jumbotron"
+          style=" padding:1%; background-color: #795E1D"
+        ></div>
+      </div>
+      <!-- IConos y texto final -->
+      <div class="container">
+        <!-- fila de iconos -->
+        <div class="row">
+          <!-- Primera Columa de 6 -->
+  
+          <div class="col-6">
+            <!-- Icono 1 centrado -->
+            <p style="text-align: center">
+              <i
+                class="fas fa-fish"
+                style="font-size: 800%; color:#795E1D; "
+              ></i>
+            </p>
+            <!-- Texto -->
+            <p style="text-align: center; ">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quia
+              eos assumenda exercitationem ducimus repudiandae neque natus libero
+              totam dolores. Perferendis ipsum quam iure explicabo maiores esse.
+              Repellendus, modi tempore.
+            </p>
+          </div>
+  
+          <!--Segunda Columa de 6 -->
+          <div class="col-6">
+            <!-- Icono 2 centrado -->
+            <p style="text-align: center">
+              <i
+                class="fas fa-lemon"
+                style="font-size: 800%; color:#795E1D;"
+              ></i>
+            </p>
+            <!-- Texto centrado -->
+            <p style="text-align: center">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Perspiciatis obcaecati consequatur eum blanditiis beatae, culpa
+              repudiandae alias doloribus explicabo veritatis! Accusamus
+              perspiciatis provident iure rem quaerat cum dolorem dolores eveniet.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Final de pagina -->
+      <div class="jumbotron" style="background-color: #FACD11;"></div>
+{% endblock %}

@@ -5,3 +5,8 @@ from .models import Post
 def post_lista(request):
     posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
     return render(request, 'vegan/post_lista.html', {'posts': posts})
+def inicio(request):
+    return render(request, 'vegan/inicio.html',{})
+    
+def productos(request):
+    return render(request, 'vegan/productos.html',{})
