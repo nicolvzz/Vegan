@@ -1,10 +1,18 @@
 {% extends 'vegan/base.html' %}
 {% block content %}
-    {% for post in posts %}
-    <div>
-        <p> publicado: {{ post.fecha_publicacion }}</p>
-        <h2><a href="">{{ post.titulo }}</a></h2>
-        <p>{{ post.texto|linebreaksbr }}</p>
+<div class="container">
+    <div class="jumbotron" style="margin-top: 20px; background-color: #795E1D;">
+            {% for post in posts %}
+        
+            <div class="post">
+                    <div class="date">
+                        {{ post.fecha_publicacion }}
+                    </div>
+                    <h2><a href="{% url 'detalle_post' pk=post.pk %}">{{ post.titulo }}</a></h2>
+                    <p>{{ post.texto|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
     </div>
-    {% endfor %}
+</div>
+    
 {% endblock %}

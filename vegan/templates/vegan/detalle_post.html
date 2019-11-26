@@ -1,0 +1,16 @@
+{% extends 'vegan/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron" style="background-color: #795E1D; margin-top: 20px;">
+            <div class="post">
+                    {% if post.fecha_publicacion %}
+                        <div class="date">
+                            {{ post.fecha_publicacion }}
+                        </div>
+                    {% endif %}
+                        <h2>{{ post.titulo }}</h2>
+                        <p>{{ post.texto|linebreaksbr }}</p>
+            </div>
+    </div>
+</div>
+{% endblock %}
