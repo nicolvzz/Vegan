@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
+from django.utils.translation import ugettext as _
 
 class Post(models.Model):
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -17,4 +17,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    class Meta:
+        permissions = (
+            ('admin',_('Es administrador')),
+            ('lector',_('Es lector')),
+        )
   

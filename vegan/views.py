@@ -13,28 +13,47 @@ from django.contrib.auth import login as do_login
 # Create your views here.
 
 def post_lista(request):
-    posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
-    return render(request, 'vegan/post_lista.html', {'posts': posts})
+    user = request.user
+    if user.has_perm('vegan.lector'):
+        posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
+        return render(request, 'vegan/post_lista.html', {'posts': posts})
+    elif user.has_perm('vegan.admin'):
+        posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
+        return render(request, 'vegan/post_lista.html', {'posts': posts})
+    else:
+        return redirect ('/login')
 def inicio(request):
     return render(request, 'vegan/inicio.html',{})
     
 def productos(request):
     return render(request, 'vegan/productos.html',{})
 def detalle_post(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    return render(request, 'vegan/detalle_post.html', {'post': post})
-def nuevo_post(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.autor = request.user
-            post.fecha_publicacion = timezone.now()
-            post.save()
-            return redirect('detalle_post', pk=post.pk)
+    user = request.user
+    if user.has_perm('vegan.admin'):
+        post = get_object_or_404(Post, pk=pk)
+        return render(request, 'vegan/detalle_post.html', {'post': post})
     else:
-        form = PostForm()
-    return render(request, 'vegan/editar_post.html', {'form': form})
+        posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
+        return render(request, 'vegan/post_lista.html', {'posts': posts})
+
+
+def nuevo_post(request):
+    user = request.user
+    if user.has_perm('vegan.admin'):
+        if request.method == "POST":
+            form = PostForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.autor = request.user
+                post.fecha_publicacion = timezone.now()
+                post.save()
+                return redirect('detalle_post', pk=post.pk)
+        else:
+            form = PostForm()
+        return render(request, 'vegan/editar_post.html', {'form': form})
+    else:
+        posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
+        return render(request, 'vegan/post_lista.html', {'posts': posts})
 
 
 def editar_post(request, pk):
