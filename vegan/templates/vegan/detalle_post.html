@@ -2,6 +2,8 @@
 {% block content %}
 <div class="container">
     <div class="jumbotron" style="background-color: #795E1D; margin-top: 20px;">
+        <a class="btn btn-default" href="{% url 'editar_post' pk=post.pk %}"><span class="fas fa-edit" style="color: #53A624;"></span></a>
+
             <div class="post">
                     {% if post.fecha_publicacion %}
                         <div class="date">
